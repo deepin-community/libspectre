@@ -1,0 +1,4 @@
+version=3
+
+opts=pgpmode=auto \
+https://libspectre.freedesktop.org/releases/libspectre-(.*)\.tar\.gz
