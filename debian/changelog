@@ -1,3 +1,30 @@
+libspectre (0.2.12-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update standards version to 4.6.2, no changes needed.
+
+ -- Pino Toscano <pino@debian.org>  Tue, 10 Jan 2023 23:56:51 +0100
+
+libspectre (0.2.11-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Update standards version to 4.6.1, no changes needed.
+  * Remove inactive Uploaders.
+
+ -- Pino Toscano <pino@debian.org>  Sat, 03 Dec 2022 16:42:31 +0100
+
+libspectre (0.2.10-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Bump watch file to v4, no changes required.
+  * Update standards version to 4.6.0, no changes needed.
+  * Update the build dependencies according to the upstream build system:
+    - bump libgs-dev to 9.53.0
+  * Use execute_after_dh_auto_install to avoid invoking dh_auto_install
+    manually.
+
+ -- Pino Toscano <pino@debian.org>  Sun, 13 Feb 2022 12:27:16 +0100
+
 libspectre (0.2.9-1) unstable; urgency=medium
 
   * New upstream release.

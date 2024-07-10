@@ -1,6 +1,6 @@
 /* This file is part of Libspectre.
  *
- * Copyright (C) 2007 Albert Astals Cid <aacid@kde.org>
+ * Copyright (C) 2007, 2023 Albert Astals Cid <aacid@kde.org>
  * Copyright (C) 2007 Carlos Garcia Campos <carlosgc@gnome.org>
  *
  * Libspectre is free software; you can redistribute it and/or modify
@@ -18,6 +18,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  */
 
+#include <assert.h>
 #include <stdlib.h>
 
 #include "spectre-private.h"
@@ -27,7 +28,8 @@ static SpectreStatus
 spectre_exporter_pdf_begin (SpectreExporter *exporter,
 			    const char      *filename)
 {
-	char *args[10];
+	static const int kArgs = 9;
+	char *args[kArgs];
 	int arg = 0;
 	char *output_file;
 	struct document *doc = exporter->doc;
@@ -51,9 +53,9 @@ spectre_exporter_pdf_begin (SpectreExporter *exporter,
 	args[arg++] = output_file = _spectre_strdup_printf ("-sOutputFile=%s",
 							    filename);
 	args[arg++] = "-c";
-	args[arg++] = ".setpdfwrite";
+	assert(kArgs == arg);
 
-	if (!spectre_gs_run (exporter->gs, 10, args)) {
+	if (!spectre_gs_run (exporter->gs, kArgs, args)) {
 		free (output_file);
 		spectre_gs_free (exporter->gs);
 		exporter->gs = NULL;

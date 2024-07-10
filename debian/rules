@@ -4,6 +4,5 @@
 %:
 	dh $@
 
-override_dh_auto_install:
-	dh_auto_install
+execute_after_dh_auto_install:
 	find debian/tmp -name '*.la' -print -delete
